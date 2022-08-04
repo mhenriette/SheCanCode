@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Page</title>
+    <style>
+         * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f1f1f1;
+    }
+
+    #accountform {
+        background-color: #ffffff;
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 35%;
+        min-width: 300px;
+        box-shadow: 0px 0px 20px #00000020;
+        border-radius: 8px;
+    }
+    #sendform {
+        background-color: #f1f1f1;
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 35%;
+        min-width: 300px;
+        box-shadow: 0px 0px 20px #00000020;
+        border-radius: 8px;
+    }
+-->button {
+    background-color: #120870;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: "Montserrat";
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+<form id="accountform" method="POST">
+     {% csrf_token %}
+<fieldset>
+
+    <legend>{{fname}}'s Account</legend>
+     <div class="tab"><label>Balance</label>
+                <p><input  name="balance" value="{{balance}}" disabled ></p>
+
+            </div>
+    <div class="send">
+        <button type='button' name='send' onclick='sendMoney()'>SEND MONEY</button>
+    </div><br>
+    <div >
+   
+       
+        <fieldset class='sendmoneyfield' style='display:none'>
+            <legend>
+                send money
+            </legend>
+            <div>
+                <label>Enter the reciepient name:<input name="rname"></label>
+            </div><br>
+            <div>
+                <label>Enter the amount:<input name="amount"></label>
+            </div><br>
+            <div>
+               <button  type="submit" >send</button>
+            </div><br>
+
+        </fieldset>
+       
+   
+</div>
+
+
+</fieldset>
+    </form>
+    <script>
+        function sendMoney(){
+
+            let view = document.querySelector(".sendmoneyfield");
+             view.style.display="block";
+           
+             let cert = document.querySelector(".send");
+           cert.style.display="none";
+           }
+
+    </script>
+
+
+</body>
+</html>

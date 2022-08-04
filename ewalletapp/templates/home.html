@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link type="">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f1f1f1;
+    }
+
+    #regForm {
+        background-color: #ffffff;
+        margin: 100px auto;
+        font-family: Raleway;
+        padding: 40px;
+        width: 35%;
+        min-width: 300px;
+        box-shadow: 0px 0px 20px #00000020;
+        border-radius: 8px;
+    }
+
+    #idspan {
+        font-size: 15px;
+        color: red;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+    }
+
+    label {
+        font-family: "Montserrat";
+        font-size: 20px;
+    }
+
+    input {
+        padding: 10px;
+        width: 100%;
+        font-size: 15px;
+        font-family: "Montserrat";
+        border: 1px solid #aaaaaa;
+    }
+    /* Mark input boxes that gets an error on validation: */
+
+    input.invalid {
+        background-color: #ffdddd;
+    }
+    /* Hide all steps by default: */
+    /* .tab {
+        display: none;
+    } */
+
+    -->button {
+        background-color: #120870;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 17px;
+        font-family: "Montserrat";
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    #sign-btn {
+        background-color: #bbbbbb;
+    }
+    /* Make circles that indicate the steps of the form: */
+
+
+
+
+</style>
+
+<body>
+    <!--{{responses}}-->
+
+    <form id="regForm" action="{% url 'account' %}" method="POST" name="myform">
+      {% csrf_token %}
+        <div class="step   ">
+
+
+            <h4>Login </h4>
+            <h4 id="alldata"></h4>
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab"><label>Username:</label>
+                <p><input placeholder="username" name="uname"></p>
+
+            </div>
+            <div class="tab"><label>password</label>
+                <p><input name="password" type="password"></p>
+
+            </div>
+           <div class="step ">
+            <button type="submit" class="login-btn">Login</button>
+               <a href="{% url 'signup' %}">create an account</a>
+
+        </div><br>
+
+    </form>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
